@@ -15,14 +15,24 @@ pipeline {
 
        stage('Printing Parameters') {
            steps {
-               echo "Hello ${params.NAME}"
-               echo "Job Details: ${params.DESC}"
-               echo "Skip running test cases?: ${params.SKIP_TEST}"
-               echo "Branch choice: ${params.BRANCH}"
-               echo "Sonar Password: ${params.SONAR_SERVER_PWD}"
-
+            //    echo "Hello ${params.NAME}"
+            //    echo "Job Details: ${params.DESC}"
+            //    echo "Skip running test cases?: ${params.SKIP_TEST}"
+            //    echo "Branch choice: ${params.BRANCH}"
+            //    echo "Sonar Password: ${params.SONAR_SERVER_PWD}"
+                script {
+                    def name = "${params.NAME}"
+                    def branch = "${params.BRANCH}"
+                    if (branch == 'master') {
+                        echo "Mr. ${name}"
+                    }
+                    else {
+                        echo "branch: ${branch}"
+                    }
+                }
            }
        }
+
         // stage1
         // stage('build'){
         //     steps {
