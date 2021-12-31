@@ -40,8 +40,8 @@ pipeline {
                     echo "password: ${MY_CRED_PSW}"
                 }
             }
-           }
-       }
+    //        }
+    //    }
 
         // stage1
         // stage('build'){
